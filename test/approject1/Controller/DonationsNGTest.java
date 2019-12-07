@@ -19,91 +19,60 @@ import org.testng.annotations.Test;
  * @author Hassan X-BOT
  */
 public class DonationsNGTest {
-    
+    private static Donations test;
     public DonationsNGTest() {
     }
 
     @BeforeClass
     public static void setUpClass() throws Exception {
+        Date date = new Date(2,2,2);
+        test=new Donations(1,"type",2,3,date,"project");
     }
 
     
     @Test
     public void testGetDonorId() {
         System.out.println("getDonorId");
-        Assert.assertTrue();
-        Assert.assertFalse();
+        Assert.assertTrue(test.getDonorId()==1);
+        Assert.assertFalse(test.getDonorId()==9);
         
     }
-//
-//    /**
-//     * Test of getDonationId method, of class Donations.
-//     */
-//    @Test
-//    public void testGetDonationId() {
-//        System.out.println("getDonationId");
-//        Donations instance = null;
-//        int expResult = 0;
-//        int result = instance.getDonationId();
-//        assertEquals(result, expResult);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
-//
-//    /**
-//     * Test of getAmount method, of class Donations.
-//     */
-//    @Test
-//    public void testGetAmount() {
-//        System.out.println("getAmount");
-//        Donations instance = null;
-//        int expResult = 0;
-//        int result = instance.getAmount();
-//        assertEquals(result, expResult);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
-//
-//    /**
-//     * Test of getDonationType method, of class Donations.
-//     */
-//    @Test
-//    public void testGetDonationType() {
-//        System.out.println("getDonationType");
-//        Donations instance = null;
-//        String expResult = "";
-//        String result = instance.getDonationType();
-//        assertEquals(result, expResult);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
-//
-//    /**
-//     * Test of getProjectName method, of class Donations.
-//     */
-//    @Test
-//    public void testGetProjectName() {
-//        System.out.println("getProjectName");
-//        Donations instance = null;
-//        String expResult = "";
-//        String result = instance.getProjectName();
-//        assertEquals(result, expResult);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
-//
-//    /**
-//     * Test of getDonationDate method, of class Donations.
-//     */
-//    @Test
-//    public void testGetDonationDate() {
-//        System.out.println("getDonationDate");
-//        Donations instance = null;
-//        Date expResult = null;
-//        Date result = instance.getDonationDate();
-//        assertEquals(result, expResult);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
+
+    @Test
+    public void testGetDonationId() {
+        System.out.println("getDonationId");
+        Assert.assertTrue(test.getDonationId()==2);
+        Assert.assertFalse(test.getDonationId()==9);
+    }
+
+    @Test
+    public void testGetAmount() {
+        System.out.println("getAmount");
+        Assert.assertTrue(test.getAmount()==3);
+        Assert.assertFalse(test.getAmount()==9);
+    }
+
+    @Test
+    public void testGetDonationType() {
+        System.out.println("getDonationType");
+        Assert.assertTrue(test.getDonationType().equals("type"));
+        Assert.assertFalse(test.getDonationType().equals("fail"));
+    }
+
+    @Test
+    public void testGetProjectName() {
+        System.out.println("getProjectName");
+        Assert.assertTrue(test.getProjectName().equals("project"));
+        Assert.assertFalse(test.getProjectName().equals("fail"));
+    }
+
+    @Test
+    public void testGetDonationDate() {
+        System.out.println("getDonationDate");
+        Date date2 = new Date(2,2,2);
+        Date date3 = new Date(1,1,1);
+        Assert.assertTrue(test.getDonationDate().equals(date2));
+        Assert.assertFalse(test.getDonationDate().equals(date3));
+    }
     
 }
